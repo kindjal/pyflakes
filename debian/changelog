@@ -1,0 +1,167 @@
+pyflakes (0.5.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Matthew Callaway <mcallawa@genome.wustl.edu>  Tue, 17 Jul 2012 10:01:16 -0500
+
+pyflakes (0.4.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/patches/always_close_fd.diff
+    - refreshed to reflect new code
+  * debian/{control, rules}
+    - use 'dh --with quilt $@', b-depending on the minimum version of quilt that
+      supports it, also adjusting XS-P-V to '>= 2.5' so it will be compatible
+      with Python 2.6; code changes inspired by Ubuntu diff
+
+ -- Sandro Tosi <morph@debian.org>  Sun, 20 Dec 2009 23:15:18 +0100
+
+pyflakes (0.3.0-2) unstable; urgency=low
+
+  * debian/control
+    - bump Standards-Version to 3.8.3 (no changes needed)
+  * debian/{control, rule, pyflakes.preinst}
+    - migrated from python-central to python-support
+
+ -- Sandro Tosi <morph@debian.org>  Fri, 02 Oct 2009 21:15:41 +0200
+
+pyflakes (0.3.0-1) unstable; urgency=low
+
+  [ Tristan Seligmann ]
+  * New upstream release.
+
+  [ Sandro Tosi ]
+  * debian/copyright
+    - added my contribution to packaging
+    - updated upstream copyright years
+  * debian/README.source
+    - removed paragraph about "./debian/rules get-orig-source"
+  * debian/control
+    - updated short and long descriptions
+
+ -- Tristan Seligmann <mithrandi@mithrandi.net>  Fri, 30 Jan 2009 20:38:15 +0200
+
+pyflakes (0.2.1+svn17054-1) unstable; urgency=low
+
+  [ Sandro Tosi ]
+  * New SVN snapshot; thanks to Julian Andres Klode for the patch;
+    Closes: #509984
+    - fixes new python features, like "with statement"
+  * debian/patches/install_scripts_package.diff
+    - removed, since merged upstream in this snapshot
+  * debian/patches/always_close_fd.diff
+    - refreshed
+  * debian/control
+    - switch Vcs-Browser field to viewsvn
+  * debian/{compat,control,rules}
+    - package converted to debhelper v7; thanks to Julian Andres Klode for the
+      patch
+  * debian/watch
+    - fixed to cope well with svn snapshots
+  * debian/patches/*.diff
+    - added descriptions
+
+  [ Marco Rodrigues ]
+  * debian/control:
+    + Add ${misc:Depends} to Depends to remove lintian warning.
+    + Add watch file.
+
+ -- Sandro Tosi <morph@debian.org>  Sat, 10 Jan 2009 18:10:42 +0100
+
+pyflakes (0.2.1+svn16699-1) unstable; urgency=low
+
+  [ Tristan Seligmann ]
+  * Remove redundant/broken python_unicode patch.
+  * Remove unneeded dependency on python-dev.
+
+  [ Sandro Tosi ]
+  * debian/control
+    - changed my email address
+    - bump Standards-Version to 3.8.0
+      + added debian/README.source
+  * debian/rules
+    - added get-orig-source
+  * debian/copyright
+    - updated copyright information
+
+  [ Hervé Cauwelier ]
+  * Update to a recent SVN checkout; Closes: #499123
+  * Strip whitespace in debian/rules
+  * Refresh patches
+  * Fixed installation with debian/patches/install_scripts_package.diff
+
+ -- Sandro Tosi <morph@debian.org>  Sun, 21 Sep 2008 00:17:47 +0200
+
+pyflakes (0.2.1+svn14502-2) unstable; urgency=low
+
+  [ Varun Hiremath ]
+  * debian/control
+    - change Build-Depends: python-central (>= 0.6)
+    - fix lintian spelling-error-in-description: s/python/Python/
+  * debian/rules
+    - remove /usr/lib directory removal (Closes: #472021)
+  * debian/patches/set_exit_status.diff
+    - fixed duplicated output, thanks to  Martin Geisler <mg@daimi.au.dk>
+      (Closes: #467135)
+
+  [ Sandro Tosi ]
+  * Adopting for PAPT (Closes: #453462)
+  * debian/control
+    - added Vcs-{Svn,Browser} fields
+    - set PAPT as maintainer
+    - set Tristan, Varun and me as uploaders
+    - removed empty lines at endfile
+
+ -- Varun Hiremath <varun@debian.org>  Sun, 23 Mar 2008 21:42:53 +0530
+
+pyflakes (0.2.1+svn14502-1) unstable; urgency=low
+
+  * QA upload.
+  * New upstream release.
+  * debian/manpages:
+    + Add debian/pyflakes.1. Thanks to Bastian Kleineidam.
+      (Closes: #414694, #439187)
+  * debian/control:
+    + Use Standards Version 3.7.3.
+    + Build-Depend on quilt.
+    + Add Homepage field.
+  * debian/rules:
+    + Use quilt for patch management.
+    + Make Debian QA team the maintainer.
+    + Remove empty usr/lib directory.
+  * debian/patches:
+    + Include usability patches from Bastian Kleineidam.
+      (Closes: #445296).
+    + Handle Unicode errors gracefully. Thanks to
+      Bastian Kleineidam for the patch. (Closes: #440750).
+  * debian/copyright:
+    + Rewrite to match new proposed Copyright format.
+  * debian/compat: Set to 5.
+  
+ -- Kumar Appaiah <akumar@ee.iitm.ac.in>  Sun, 09 Dec 2007 00:42:09 +0530
+
+pyflakes (0.2.1-2) unstable; urgency=low
+
+  * Update for new python policy (Closes: #380903)
+
+ -- Andrew Mitchell <ajmitch@debian.org>  Sat, 22 Jul 2006 15:56:22 +1200
+
+pyflakes (0.2.1-1) unstable; urgency=low
+
+  * Initial Debian release (Closes: #330896)
+
+ -- Andrew Mitchell <ajmitch@debian.org>  Wed,  3 May 2006 18:12:15 +1200
+
+pyflakes (0.2.1-0ubuntu1) breezy; urgency=low
+
+  * New upstream release
+  * Changed Section to python
+	
+ -- Andrew Mitchell <ajmitch@ubuntu.com>  Thu, 13 Oct 2005 02:37:05 +1300
+
+pyflakes (0.2.0-0ubuntu1) breezy; urgency=low
+
+  * Initial release
+
+ -- Andrew Mitchell <ajmitch@ubuntu.com>  Fri, 30 Sep 2005 00:54:25 +1200
+

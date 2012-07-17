@@ -1,0 +1,14 @@
+# Handle Unicode errors gracefully
+
+--- a/pyflakes/scripts/pyflakes.py
++++ b/pyflakes/scripts/pyflakes.py
+@@ -26,6 +26,9 @@
+         print >> sys.stderr, line
+         print >> sys.stderr, " " * offset, "^"
+         return 1
++    except UnicodeError, msg:
++        print >> sys.stderr, 'encoding error at %r: %s' % (filename, msg)
++        return 1
+     else:
+         w = checker.Checker(tree, filename)
+         w.messages.sort(lambda a, b: cmp(a.lineno, b.lineno))

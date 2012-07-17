@@ -1,0 +1,23 @@
+Source: pyflakes
+Section: python
+Priority: optional
+Maintainer: Python Applications Packaging Team <python-apps-team@lists.alioth.debian.org>
+Uploaders: Tristan Seligmann <mithrandi@mithrandi.net>, Varun Hiremath <varun@debian.org>, Sandro Tosi <morph@debian.org>
+Build-Depends: debhelper (>= 7), python-support (>= 1.0.0), python, quilt (>= 0.46-7)
+XS-Python-Version: >= 2.5
+Standards-Version: 3.8.3
+Homepage: http://divmod.org/trac/wiki/DivmodPyflakes
+Vcs-Svn: svn://svn.debian.org/svn/python-apps/packages/pyflakes/trunk/
+Vcs-Browser: http://svn.debian.org/viewsvn/python-apps/packages/pyflakes/trunk/
+
+Package: pyflakes
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: ${python:Depends}, ${misc:Depends}
+Description: passive checker of Python programs
+ Pyflakes is program to analyze Python programs and detect various
+ errors. It works by parsing the source file, not importing it, so it
+ is safe to use on modules with side effects. It's also much faster.
+ .
+ Unlike PyLint, Pyflakes checks only for logical errors in programs;
+ it does not perform any checks on style.

@@ -1,0 +1,4 @@
+add_main_function.diff
+always_close_fd.diff
+set_exit_status.diff
+check_encoding_errors.diff

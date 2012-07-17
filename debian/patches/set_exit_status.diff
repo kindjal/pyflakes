@@ -1,0 +1,18 @@
+# fixed duplicated output
+
+--- a/bin/pyflakes
++++ b/bin/pyflakes
+@@ -2,4 +2,4 @@
+ 
+ import sys
+ from pyflakes.scripts.pyflakes import main
+-main(sys.argv[1:])
++sys.exit(main(sys.argv[1:]))
+--- a/pyflakes/scripts/pyflakes.py
++++ b/pyflakes/scripts/pyflakes.py
+@@ -64,4 +64,4 @@
+     else:
+         warnings += check(sys.stdin.read(), '<stdin>')
+ 
+-    raise SystemExit(warnings > 0)
++    return warnings

@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+# Build instructions
+%:
+	dh --with quilt $@
+
+PACKAGE = pyflakes
+SRC_VERSION := $(shell dpkg-parsechangelog | sed -ne 's/^Version: \(.*\)-.*/\1/p')
+SVN_REVISION := $(shell echo $(SRC_VERSION) | awk -F"+" '{ print $$2 }' | sed 's/svn//' )
+TARBALL = $(PACKAGE)_$(SRC_VERSION).orig.tar.gz
+.PHONY: get-orig-source
+get-orig-source:
+	rm -rf get-orig-source $(TARBALL)
+	mkdir get-orig-source
+	svn export -r $(SVN_REVISION) http://divmod.org/svn/Divmod/trunk/Pyflakes/ \
+	get-orig-source/$(PACKAGE)-$(SRC_VERSION).orig
+	GZIP=--best tar czf $(TARBALL) -C get-orig-source $(PACKAGE)-$(SRC_VERSION).orig
+	rm -rf get-orig-source
+	#  $(TARBALL) created; move it to the right destination to build the package

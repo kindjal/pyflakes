@@ -1,0 +1,21 @@
+# Be sure to close file descriptor (even in case of errors)
+
+Index: pyflakes-0.4.0quilt/pyflakes/scripts/pyflakes.py
+===================================================================
+--- pyflakes-0.4.0quilt.orig/pyflakes/scripts/pyflakes.py	2009-12-20 19:20:53.933250864 +0100
++++ pyflakes-0.4.0quilt/pyflakes/scripts/pyflakes.py	2009-12-20 22:03:33.488043385 +0100
+@@ -75,8 +75,12 @@
+     @return: the number of warnings printed
+     """
+     try:
+-        return check(file(filename, 'U').read() + '\n', filename)
+-    except IOError, msg:
++        fd = file(filename, 'U')
++        try:
++            return check(fd.read(), filename)
++        finally:
++            fd.close()
++    except IOError, msg:
+         print >> sys.stderr, "%s: %s" % (filename, msg.args[1])
+         return 1
+ 

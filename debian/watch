@@ -1,0 +1,4 @@
+version=3
+opts=dversionmangle=s/\+svn\d+$// \
+http://divmod.org/trac/wiki/DivmodPyflakes \
+    .*/pyflakes-(.*)\.tar\.gz\?format=raw
